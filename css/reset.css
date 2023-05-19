@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#reset{
+
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+.your{
+    width: 37%;
+    border: 1px solid black;
+    margin-left: 20rem;
+    padding: 20px 14px 17px 34px;
+}
+
+.your h1{
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.your p{
+    font-size: 12px;
+    color: #5a5555;
+}
+
+.your input{
+    width: 100%;
+    padding: 6px 1px 5px 6px;
+}
+
+.your .btn:hover{
+    color: white;
+    background: rgb(51, 61, 173);
+}
+
+.your p a{
+    color: black;
+    font-weight: 700;
+}

@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.borderr .address h3:before{
+    position: absolute;
+    left: 32px;
+    top: 7%;
+    content: "\f058";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    line-height: 22px;
+    margin-top: -11px;
+    color: #00b07d;
+
+}
+.heading_container h2::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 75px;
+    height: 5px;
+    background-color: #00b07d;
+}
+
+.address{
+    padding: 20px 15px 14px 16px;
+    background: #EFEFEF
+}
+.address h3{
+    margin-left: 34px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.cardd{
+    min-height: 1px;
+    padding: 1.25rem;
+    border: 1px solid #e7e7e7;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+    line-height: 1.8;
+    color: #051922;
+    margin: 0 0 1.25rem 0;
+}
+
+.cardd form p input {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+
+table.order-details {
+    border: 1px solid #efefef;
+}
+table.order-details thead tr th {
+    background-color: #efefef;
+    padding: 18px;
+    font-size: 15px;
+    font-weight: 500;
+}
+table.order-details tbody td {
+    border: 1px solid #efefef;
+    padding: 15px;
+}
+.submit{
+    background: #00b07d;
+    border: none;
+    padding: 10px 15px 10px 13px;
+    border-radius: 6px;
+    color: white;
+}
+.submit a{
+    color: white;
+    text-decoration: none;
+}
+.borderr{
+    margin-bottom: 30px;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    .order-details-wrap{
+        margin-top: 34px;
+    }
+    table.order-details {
+        border: 1px solid #efefef;
+        width: 100%;
+    }
+    .submit{
+        margin-bottom: 19px;
+    }
+
+
+
+}

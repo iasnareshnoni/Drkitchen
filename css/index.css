@@ -1,0 +1,61 @@
+
+    
+     
+    .carty{
+        background: #f7ccae;
+    
+    }
+    
+    .apple{
+        text-align: center;
+    }
+    .apple img{
+        width: 20%;
+    }
+    
+    .number{
+        text-align: center;
+      
+    }
+    .number input{
+      
+       
+     
+        width: 43%;
+        height: 43px;
+    
+    }
+    
+    #btn{
+        border-radius: 23px;
+        background: #ff8100;
+        /* padding: 0px 0px 0px 16px; */
+        margin-left: 9px; 
+        padding: 8px 21px 8px 21px;
+        border: none;  
+    }
+    
+    .bark{
+        font-weight: 600;
+    }
+    .carty-th{
+        font-weight: 700;
+    }
+
+    .background {
+        background: url(../img/dal.png) , #08080887;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: multiply;
+      
+    }
+
+    .heading{
+        text-align: center;
+    }
+    .heading h1{
+        color: white;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    font-weight: 700;
+    }
