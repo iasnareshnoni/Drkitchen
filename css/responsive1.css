@@ -138,6 +138,11 @@
     .apple img {
         width: 48%;
     }
+
+    .item {
+        background-color: #ffffff;
+        height: 266px;
+    }
   
 
 }
