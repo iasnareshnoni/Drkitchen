@@ -38,7 +38,10 @@
 </head>
 
 <body class="sub_page">
-
+<div>hii</div>
+<div>hii</div>
+<div>hii</div>
+<div>hii</div>
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
