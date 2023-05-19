@@ -13,9 +13,10 @@
     border:black;
   }
   
-  .carty{
-        background: #f7ccae;  
-    }
+  .carty {
+    background: #00b07d;
+    /* color: #fff; */
+}
     
     .apple{
         text-align: center;
@@ -54,7 +55,7 @@
     }
 
     .background {
-        background: url(../images/img/dal.png) , #08080887;
+        background: url(../images/img/dal.png) , #08080814;
         background-repeat: no-repeat;
         background-size: cover;
         background-blend-mode: multiply;
@@ -70,6 +71,11 @@
         margin-bottom: 5rem;
     font-weight: 700;
     }
+
+    table.table-bordered > thead > tr > th {
+    border: 1px solid #a1a1a1;
+    color: #fff;
+}
 
  
 @media (max-width:991px){
@@ -244,7 +250,7 @@
 
 
               </table>
-              <div class="d-flex">
+              <div class="d-flex mb-4">
                 <button type="button" class="btn btn-primary update_cart" id="btn">Update Cart</button>
                 <a href="check-out.php"><button type="button" class="btn btn-primary " id="btn">Check Out</button></a>
               </div>

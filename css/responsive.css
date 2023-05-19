@@ -204,6 +204,12 @@
 
 
 
+/* big plates */
+.item {
+  height: 264px;
+}
+
+
 }
 
 @media (max-width: 767px) {
@@ -366,6 +372,11 @@ px
   font-weight: 700;
   margin-top: -1rem;
 }
+
+.item {
+  background-color: #fffbfb00;
+  height: 252px;
+}
 }
 
 
@@ -409,6 +420,12 @@ px
 .tabset {
   max-width: 65em;
   margin: 0px -1px 0px 4px;
+}
+
+/* big plates */
+
+.item {
+  height: 215px;
 }
 
 }
@@ -483,8 +500,8 @@ px
 }
 
 .item {
-  background-color: #ffffff;
-  height: 75px;
+  background-color: #fffbfb00;
+  height: 300px;
 }
 
 .great_matter p {
@@ -495,6 +512,20 @@ px
   /* display: inline-block; */
   padding-right: 21px;
   background: aliceblue;
+}
+
+
+
+
+/* plats all big */
+.item {
+  background-color: #fffbfb00;
+  height: 204px;
+}
+
+.slider_section {
+  padding-top: 8px;
+  padding-bottom: 273px;
 }
 
   
@@ -589,6 +620,49 @@ px
   padding-bottom: 7px;
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+
+/* big plates */
+.item {
+  background-color: #fffbfb00;
+  height: 319px;
+}
+
+
+
+/* sidenav */
+.detail h2 {
+  font-size: 55px;
+  margin-top: 10px;
+  text-align: center;
+  /* text-align: left; */
+}
+
+.detail p {
+  color: #fff;
+  font-size: 19px;
+  margin-top: -7px;
+  text-align: center;
+}
+
+.email-tagj {
+  margin-left: 0rem;
+  margin-top: 0rem;
+  color: #ffff;
+  font-size: 18px;
+  margin-bottom: -1rem;
+  font-weight: 700;
+}
+
+.profile img {
+  width: 52%;
+}
+
+.main-side-bar {
+  text-align: left;
+  padding: 39px;
+  line-height: 40px;
 }
 
 }
@@ -701,12 +775,22 @@ font-size: 46px;
 font-family: 'Fredoka', sans-serif;
 }
 
+
+.item {
+  background-color: #fffbfb00;
+  height: 284px;
+}
+
+
 }
 
 
 
-@media (min-width: 320px) {
-
+@media (max-width: 320px) {
+  .item {
+    background-color: #fffbfb00 !important;
+    height: 261px !important;
+}
 
 }
 
