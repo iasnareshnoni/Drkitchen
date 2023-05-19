@@ -1,9 +1,11 @@
-<?php include 'header.php'; ?>
+<?php session_start();
+include 'header.php';
+   
+?>
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
 </div>
-
 
 <!-- slider section -->
 <section class="slider_section ">

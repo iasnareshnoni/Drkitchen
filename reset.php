@@ -1,8 +1,10 @@
 <?php 
-  session_start();
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
-
+  session_start();
+  if(isset($_SESSION['email'])){
+    header('location:index.php');
+  }else{
   require 'vendor/autoload.php';
   include "config.inc.php";
   $msg = '';
@@ -136,3 +138,6 @@
 </body>
 
 </html>
+<?php
+  }
+?>

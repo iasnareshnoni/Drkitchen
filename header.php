@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php 
 require "config.inc.php";
 ?>
 <!DOCTYPE html>

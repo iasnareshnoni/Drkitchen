@@ -1,11 +1,10 @@
-<?php
-// session_start();
-include 'header.php';
- include "config.inc.php";
-
+<?php session_start();
   if(isset($_SESSION['email'])){
     $user = $_SESSION['email'];
-  }
+
+    include 'header.php';
+    include "config.inc.php";
+ 
  ?>
 <style>
 
@@ -313,3 +312,8 @@ include 'header.php';
 </body>
 
 </html>
+<?php
+ }else{
+  header('location:login.php');
+}
+?>
