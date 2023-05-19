@@ -423,9 +423,9 @@ if(isset($_GET['user_id'])){
 	
 	<!--start color switcher-->
    <div class="right-sidebar">
-    <!-- <div class="switcher-icon">
+    <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-    </div> -->
+    </div>
     <div class="right-sidebar-content">
 
       <p class="mb-0">Gaussion Texture</p>

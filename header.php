@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 require "config.inc.php";
 ?>
 <!DOCTYPE html>
@@ -125,7 +126,7 @@ require "config.inc.php";
                     </div>
 
                     <div class="main-side-bar mt-4">
-                        <a href="cart.php"> Cart</a>
+                        <a href="cart.php"><img src="images/Images4.png" alt="">Cart</a>
                         <a href="order_details.php" class="effect-underline"><img src="images/Image2.png" alt="">Order</a>
                         <a href="logout.php" class="text-underline effect-underline"><img src="images/images3.png" alt="">Customer Support</a>
                         <a href="logout.php" class="text-underline effect-underline"><img src="images/images1.png" alt="">Logout</a>

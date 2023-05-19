@@ -2,8 +2,6 @@
   include "config.inc.php";
   if(isset($_SESSION['email'])){
     $user = $_SESSION['email'];
-  }else{
-    $user = '';
   }
 ?>
 <style>
