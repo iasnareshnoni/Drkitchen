@@ -1,11 +1,11 @@
 <?php
 
 $host = "localhost";
-$user = "root";
-$pass = "";
+$dbuser = "root";
+$dbpass = "";
 $db = "drkitchen";
  
-$con = mysqli_connect($host,$user,$pass,$db);
+$con = mysqli_connect($host,$dbuser,$dbpass,$db);
 
 if(!$con){
    echo "<script>alert('Database Connection Error');</script>";
