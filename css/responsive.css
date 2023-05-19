@@ -4,6 +4,10 @@
     margin: 5rem 32.125rem;
 }
 
+.email-tagj {
+  margin-left: -135px;
+}
+
 
 }
 
@@ -16,7 +20,7 @@
 }
 
 .menu_width {
-  width: 46%;
+  width: 27%;
 }
 
 .tabset {
@@ -40,7 +44,7 @@
   }
 
   .menu_width {
-    width: 46%;
+    width: 27%;
 }
 
 .tabset {
@@ -74,6 +78,10 @@
     margin: 0 0px 0px 56px;
   }
 
+  .menu_width {
+    width: 35%;
+}
+
 }
 
 @media (max-width: 1120px) {
@@ -82,8 +90,8 @@
     padding: 0;
   }
 
-  .menu_width {
-    width: 46%;
+.menu_width {
+  width: 35%;
 }
 
 .label-img {
@@ -373,6 +381,14 @@ px
   margin-top: -1rem;
 }
 
+.menu_width {
+  width: 46%;
+}
+
+.email-tagj {
+  margin-left: -10rem;
+}
+
 .item {
   background-color: #fffbfb00;
   height: 252px;
@@ -528,6 +544,32 @@ px
   padding-bottom: 273px;
 }
 
+.profile img {
+  width: 50%;
+}
+
+.detail h2 {
+  font-size: 51px;
+  text-align: center;
+}
+
+.detail p {
+  margin-top: -7px;
+  text-align: center;
+}
+
+.email-tagj {
+  margin-left: 0rem;
+  margin-top: 3rem;
+}
+
+.main-side-bar a:nth-child(4) {
+  bottom: -11rem;
+  left: 203px;
+  width: 43%;
+  padding: 11px;
+}
+
   
 }
 
@@ -539,6 +581,8 @@ px
   .menu_width {
     width: 69%;
 }
+
+
 
 
 .tabset {
@@ -651,17 +695,24 @@ px
   margin-top: 0rem;
   color: #ffff;
   font-size: 18px;
-  margin-bottom: -1rem;
+  margin-bottom: 0rem;
   font-weight: 700;
 }
 
 .profile img {
   width: 52%;
 }
+.main-side-bar a:nth-child(4) {
+  bottom: -11rem;
+  left: 203px;
+  width: 43%;
+  padding: 11px;
+}
+
 
 .main-side-bar {
   text-align: left;
-  padding: 39px;
+  padding: 32px;
   line-height: 40px;
 }
 
@@ -670,6 +721,12 @@ px
 @media (max-width: 376px) {
   .menu_width {
     width: 69%;
+}
+
+.main-side-bar a:nth-child(4) {
+  bottom: -9rem;
+  left: 157px;
+  width: 50%;
 }
 
 .deal-week h2 {
@@ -790,6 +847,21 @@ font-family: 'Fredoka', sans-serif;
   .item {
     background-color: #fffbfb00 !important;
     height: 261px !important;
+}
+
+.main-side-bar a:nth-child(4) {
+  
+  bottom: -9rem;
+
+  left: 97px;
+  /* margin-right: 17px; */
+}
+
+.main-side-bar a:nth-child(4) {
+  bottom: -9rem;
+  left: 97px;
+  width: 61%;
+  /* margin-right: 17px; */
 }
 
 }

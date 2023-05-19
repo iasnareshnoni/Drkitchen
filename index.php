@@ -1,11 +1,9 @@
-<?php session_start();
-include 'header.php';
-   
-?>
+<?php include 'header.php'; ?>
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
 </div>
+
 
 <!-- slider section -->
 <section class="slider_section ">
@@ -100,7 +98,7 @@ include 'header.php';
 <section class="recipe_section layout_padding-top">
   <div class="container">
     <div class="heading_container heading_center">
-      <h2>
+      <h2 class="text-dark">
         Our Best Popular Recipes
       </h2>
     </div>
@@ -164,7 +162,7 @@ include 'header.php';
 <section class="section-background parallax">
   <div class="container">
     <div class="coolest-texh">
-      <h2 class="text-center">Improve your health using food</h2>
+      <h2 class="text-center ">Improve your health using food</h2>
       <p>Research backed recipes tailored to your personal needs. Expert knowledge and advice from qualified
         professionals.</p>
       <div class="buttons-col">
@@ -181,7 +179,7 @@ include 'header.php';
       <div class="container">
         <div
           class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2>Normal Thali</h2>
+          <h2 class="text-dark">Normal Thali</h2>
           <div class="row mt-3">
           <?php
         
@@ -233,7 +231,7 @@ include 'header.php';
       <div class="container">
         <div
           class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2>Snacks</h2>
+          <h2 class="text-dark">Snacks</h2>
           <div class="row mt-3">
           <?php
         
@@ -284,7 +282,7 @@ include 'header.php';
       <div class="container">
         <div
           class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2>Summer Special</h2>
+          <h2 class="text-dark" >Summer Special</h2>
           <div class="row mt-3">
           <?php
         
@@ -335,7 +333,7 @@ include 'header.php';
       <div class="container">
         <div
           class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2>Special Thali</h2>
+          <h2 class="text-dark">Special Thali</h2>
           <div class="row mt-3">
           <?php
         

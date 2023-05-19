@@ -1,10 +1,5 @@
 <?php include "header.inc.php"; ?>
-<style>
-    .order-id a{
-      color: #6ce4ff;
-      text-decoration: underline;
-    } 
-    </style>
+
 <div class="content-wrapper">
     <div class="container-fluid">
      
@@ -41,7 +36,7 @@
                       
                  <?php ?>
                       <td><?php echo $i++; ?></td>
-                      <td class="order-id"><a class="link" href="order_detail.php?user_id=<?php echo $res['b_id']; ?>"><?php echo $res['b_product_name']; ?></a></td>
+                      <td><a class="link" href="order_detail.php?user_id=<?php echo $res['b_id']; ?>"><?php echo $res['b_product_name']; ?></a></td>
                       <td><?php echo $res['b_address']; ?></td>
                       <td><?php echo $res['b_phone']; ?></td>
                       <?php
@@ -85,9 +80,9 @@
 	
 	<!--start color switcher-->
    <div class="right-sidebar">
-    <!-- <div class="switcher-icon">
+    <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-    </div> -->
+    </div>
     <div class="right-sidebar-content">
 
       <p class="mb-0">Gaussion Texture</p>

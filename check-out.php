@@ -1,8 +1,9 @@
-<?php session_start();
+<?php include 'header.php'; 
  if($_SESSION['email']){
     $user = $_SESSION['email'];
-    include 'header.php'; 
- ?>
+ }
+
+?>
 <style>
     .hero_area {
         position: relative;
@@ -160,9 +161,4 @@
     </div>
 </section>
 
-<?php include 'footer.php'; 
- }else{
-    header('location:index.php');
- }
-?>
-
+<?php include 'footer.php'; ?>
