@@ -55,6 +55,7 @@ body {
 
 .heading_container h2 {
   font-size: 2.5rem;
+  color: #000000;
   position: relative;
   font-weight: bold;
   margin-bottom: 0;
@@ -479,6 +480,7 @@ a:focus {
 
 .recipe_section .box .detail-box h4 {
   font-family: "bodoni svtytwo sc itc tt book", sans-serif;
+  color: #000000;
   font-weight: 400;
 }
 

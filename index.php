@@ -20,7 +20,7 @@ include 'header.php';
             when looking at its layout. The point of using Lorem Ipsum
           </p>
         </div>
-        <div class="find_container ">
+        <!-- <div class="find_container ">
           <div class="container">
             <div class="row">
               <div class="col">
@@ -45,7 +45,7 @@ include 'header.php';
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

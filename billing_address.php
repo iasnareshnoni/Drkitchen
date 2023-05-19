@@ -10,9 +10,6 @@ require 'vendor/autoload.php';
 
 require_once "config.inc.php";
 
-
- 
-
    $name = $_POST['name'];
    $email = $_POST['email'];
    $address = $_POST['address'];
@@ -25,8 +22,15 @@ require_once "config.inc.php";
    $total_amount = $_POST['totalAmount'];
    $date = date('Y-m-d H:i:s');
 
+    $sql1 = "INSERT INTO order_details (order_product, order_qty, order_price, order_payment_id , order_total, order_date, order_user) VALUES ('$product','$qty','$total','$payment_id','$total_amount','$date','$user')";
+    $sql1 .= "INSERT INTO billing_address1 (b_name, b_email, b_address, b_phone ,user) VALUES ('$name','$email','$address','$phone','$user')";
 
-    $query = mysqli_query($con, "INSERT INTO billing_address (b_product_name, b_email, b_address, b_phone, b_product,b_qty, b_total,b_payment_id,b_pay_amount,b_image,b_date,user) VALUES ('$name','$email','$address','$phone','$product','$qty','$total',' $payment_id','$total_amount','$img','$date','$user')");
+    $query = mysqli_multi_query($con,$sql1);
+
+    print_r($query);
+    die();
+
+    // $query = mysqli_query($con, "INSERT INTO billing_address (b_product_name, b_email, b_address, b_phone, b_product,b_qty, b_total,b_payment_id,b_pay_amount,b_image,b_date,user) VALUES ('$name','$email','$address','$phone','$product','$qty','$total',' $payment_id','$total_amount','$img','$date','$user')");
     if($query){
          
         $mail = new PHPMailer(true);
@@ -47,15 +51,24 @@ require_once "config.inc.php";
         $mail->Subject = 'Dr Kitchen Order Details';
         $mail->Body = '<html>
         <body>
-        <p> '.$name .' <p>
-        <p> '.$email .'<p>
-        <p> ' .$address.' <p>
-        <p> Product Item: <span> ' . $product .'<span><p>
-        <p> Product Quantity: <span> ' . $qty .'<span><p>
-        <p> Product Price: <span> ' . $total .'<span><p>
-        <p> ' . $total_amount .'<p>
-        Your Order is Confirmed. <br>
-        '. $date .'
+        // <p> '.$name .' <p>
+        // <p> '.$email .'<p>
+        // <p> ' .$address.' <p>
+        // <p> Product Item: <span> ' . $product .'<span><p>
+        // <p> Product Quantity: <span> ' . $qty .'<span><p>
+        // <p> Product Price: <span> ' . $total .'<span><p>
+        // <p> ' . $total_amount .'<p>
+        // Your Order is Confirmed. <br>
+        // '. $date .'
+
+        <ul>
+        <li><span>Circle symbol</span></li>
+        <li><span>Square symbol</span></li>
+        <li><span>Example text</span></li>
+        <li><span id="demo">Click on me!</span></li>
+        <button type="button" onclick="displayDate()">Display Date</button>
+    
+      </ul> 
     </body>
                      </html>' ;
         $mail->AltBody = '';
@@ -89,6 +102,7 @@ require_once "config.inc.php";
 
 
     }else{
+        echo "<script>alert('Query Failed.');</script>";
         echo "<script>alert('Payment Not Successful'); </script>";
     }
 

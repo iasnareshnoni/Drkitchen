@@ -39,12 +39,12 @@
     }
     
     #btn{
-        border-radius: 23px;
-        background: #ff8100;
-        /* padding: 0px 0px 0px 16px; */
-        margin-left: 9px; 
-        padding: 8px 21px 8px 21px;
-        border: none;  
+    border-radius: 23px;
+    background: #00b07d;
+    font-weight: 600;
+    margin-left: 9px;
+    padding: 8px 21px 8px 21px;
+    border: none;  
     }
     
     .bark{

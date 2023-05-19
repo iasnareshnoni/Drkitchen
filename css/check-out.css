@@ -13,7 +13,7 @@
     font-weight: 900;
     line-height: 22px;
     margin-top: -11px;
-    color: #00b07d;
+    color: #ffffff;
 
 }
 .heading_container h2::before {
@@ -30,7 +30,7 @@
 
 .address{
     padding: 20px 15px 14px 16px;
-    background: #EFEFEF
+    background: #00b07d;
 }
 .address h3{
     margin-left: 34px;
@@ -64,9 +64,11 @@ p {
 
 table.order-details {
     border: 1px solid #efefef;
+    color: black;
 }
 table.order-details thead tr th {
-    background-color: #efefef;
+    background-color: #00b07d;
+    color: white;
     padding: 18px;
     font-size: 15px;
     font-weight: 500;
