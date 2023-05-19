@@ -26,6 +26,8 @@ require "config.inc.php";
   <link rel="stylesheet" href="index.js">
   <link rel="stylesheet" href="css/responsive1.css">
 
+  <script src="https://kit.fontawesome.com/9e126d7ac9.js" crossorigin="anonymous"></script>
+
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
 
@@ -117,16 +119,17 @@ require "config.inc.php";
                         <div class="detail">
                           <h2><?php echo $_SESSION['name'];?></h2>
                           <p><?php echo $_SESSION['mobile'];?></p>
-                          <p><?php echo $_SESSION['email'];?></p>
                         </div>
+                        <p class="email-tagj"><?php echo $_SESSION['email'];?></p>
                         </div>
                       </div>
                     </div>
 
                     <div class="main-side-bar mt-4">
-                        <a href="cart.php">Cart</a>
-                        <a href="order_details.php">Order</a>
-                        <a href="logout.php" class="text-underline">Logout</a>
+                        <a href="cart.php"> Cart</a>
+                        <a href="order_details.php" class="effect-underline"><img src="images/Image2.png" alt="">Order</a>
+                        <a href="logout.php" class="text-underline effect-underline"><img src="images/images3.png" alt="">Customer Support</a>
+                        <a href="logout.php" class="text-underline effect-underline"><img src="images/images1.png" alt="">Logout</a>
                     </div>
                     <div class="some-social">
                       <a href="#"><img src="#" alt=""></a>

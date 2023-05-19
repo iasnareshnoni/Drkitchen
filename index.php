@@ -14,7 +14,7 @@
           <h1>
             Discover Restuarant And Food
           </h1>
-          <p>
+          <p class="text-white">
             when looking at its layout. The point of using Lorem Ipsum
           </p>
         </div>

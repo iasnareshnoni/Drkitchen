@@ -5,7 +5,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #0c0c0c;
+  color: #ffffff;
   background-color: #ffffff;
   overflow-x: hidden;
   /* background-image: url(../images/body-bg.jpg); */
@@ -232,7 +232,7 @@ a:focus {
 .overlay a {
   padding: 0px;
   text-decoration: none;
-  font-size: 22px;
+  font-size: 19px;
   color: #ffffff;
   display: block;
   -webkit-transition: 0.3s;
@@ -253,7 +253,8 @@ a:focus {
 }
 
 .menu_width {
-  width: 25%;
+  width: 21%;
+  padding: 10px;
 }
 
 .menu_width.overlay a {
@@ -813,3 +814,29 @@ a:focus {
   border-radius: 1px;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+/* a.effect-underline:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 1px solid;
+  margin-top: 10px;
+  margin-left: 83px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0,1);
+  transform: scale(0,1);
+}
+
+a.effect-underline:hover:after {
+  opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+} */
