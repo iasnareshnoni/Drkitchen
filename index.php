@@ -204,8 +204,8 @@
                     <div class="price">
                       <div class="vert">
                         <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <div> <a href="#" class="like"><i style="color:#d6383d;"
-                              class="fa-sharp fa-solid fa-heart"></i></a></div>
+                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+                              class="fa-sharp fa-solid fa-heart"></i></a></div> -->
                         <!-- <div class="price_old">$550.00</div> -->
                         <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
                               class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
@@ -256,8 +256,8 @@
                     <div class="price">
                       <div class="vert">
                         <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <div> <a href="#" class="like"><i style="color:#d6383d;"
-                              class="fa-sharp fa-solid fa-heart"></i></a></div>
+                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+                              class="fa-sharp fa-solid fa-heart"></i></a></div> -->
                         <!-- <div class="price_old">$550.00</div> -->
                         <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
                               class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
@@ -307,8 +307,8 @@
                     <div class="price">
                       <div class="vert">
                         <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <div> <a href="#" class="like"><i style="color:#d6383d;"
-                              class="fa-sharp fa-solid fa-heart"></i></a></div>
+                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+                              class="fa-sharp fa-solid fa-heart"></i></a></div> -->
                         <!-- <div class="price_old">$550.00</div> -->
                         <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
                               class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
@@ -358,8 +358,8 @@
                     <div class="price">
                       <div class="vert">
                         <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <div> <a href="#" class="like"><i style="color:#d6383d;"
-                              class="fa-sharp fa-solid fa-heart"></i></a></div>
+                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+                              class="fa-sharp fa-solid fa-heart"></i></a></div> -->
                         <!-- <div class="price_old">$550.00</div> -->
                         <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
                               class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>

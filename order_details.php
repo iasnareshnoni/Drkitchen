@@ -5,6 +5,45 @@
   }
 ?>
 <style>
+ .main-email-table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background: azure;
+    color: #009d70;
+    /* text-align: center; */
+    width: 82%;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.main-email-table th span{
+    text-align: left;
+    padding: 8px;
+    background: azure;
+    color: #000;
+    /* text-align: center; */
+    width: 82%;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.main-email-table td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background: azure;
+    color: #000;
+    /* text-align: center; */
+    width: 82%;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.main-email-table h2 {
+    color: #009d70;
+    border-bottom: 1px solid black;
+    font-size: 57px;
+    font-family: 'Fredoka', sans-serif;
+}
+
 .hero_area {
     position: relative;
     display: -webkit-box;
@@ -26,7 +65,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="title-area-data">
-                    <h2>Order Details</h2>
+                    <h2 class="text-dark">Order History</h2>
                     <p>A magical combination that sent aromas to the taste buds</p>
                 </div>
             </div>
@@ -50,89 +89,64 @@
 </section>
 
 
-<section>
-    <div class="order-deta mt-4" style="margin-bottom: 13rem;">
-        <div class="container">
-
-        <?php
-                  
-                  $select_order = mysqli_query($con,"SELECT * FROM billing_address WHERE user = '$user'");
-                  if( mysqli_num_rows($select_order) > 0){
-                    while( $res = mysqli_fetch_assoc($select_order)){
-                ?>
-            <div class="cover">
-
-                <div class="item">
-                <h4 class="fw-bold">OrderID</h4>
-                    <div class="image-order">
-                      <h4>#ODRID00A<?php echo $res['b_id']; ?></h4>
-                    </div>
-                </div>
-                <div class="item">
-                <h4 class="fw-bold">Product</h4>
-                <div class="order_cont">
-               
-                     <?php
-                       $product = explode(',',$res['b_product']);
-                       foreach($product as $prod){
-                     ?>
-
-                        <td><h4><?php echo $prod; ?></h4></td>
-                     <?php
-                       }
-                     ?>
-                    </div>
-                </div>
-                <div class="item">
-                <h4 class="fw-bold">Quantity</h4>
-                <div class="total-price">
-           
-                <?php
-                       $qty = explode(',',$res['b_qty']);
-                       foreach($qty as $qty){
-                 ?>
-                       <td> <p><span>X<?php echo $qty; ?></span></p></td>
-                 <?php
-                       }
-                  ?>
-                    </div>
-                </div>
-                <div class="item">
-                <h4 class="fw-bold">Price</h4>
-                <div class="rupee_details">
-
-                <?php
-                       $price = explode(',',$res['b_total']);
-                       foreach($price as $price){
-                 ?>
-                        <p> &nbsp;₹<?php echo $price; ?></p>
-
-                 <?php
-                       }
-                     ?>
-                    </div>
-                </div>
-                <div class="item">
-                <h4 class="fw-bold">Expected Time</h4>
-                <div class="delivery-time">
-                        <h4>Delivery in <span>2 Hours</span></h4>
-                    </div>
-                </div>
+<section style="    margin-bottom: 19rem;     margin-top: 9rem;">
+    <div class="container">
+        <div class="main-email-table">
+            <h2>Order History</h2>
+            <div class="order-details">
+                <table>
+                    <tr>
+                        <th>ORDER NUMBER:<span>&nbsp;&nbsp;#13265232466</span> </th>
+                    </tr>
+                    <tr>
+                        <th>DATE:<span>&nbsp;&nbsp;23/12/2023</span> </th>
+                    </tr>
+                </table>
+            </div>
+            <!-- which product you buy -->
+            <div class="product-buy">
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Each</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>thali full</td>
+                        <td>2</td>
+                        <td>₹<span>250</span></td>
+                        <td>₹<span>500</span></td>
+                    </tr>
+                    <tr>
+                        <td>rajma chawal full</td>
+                        <td>3</td>
+                        <td>₹<span>250</span></td>
+                        <td>₹<span>750</span></td>
+                    </tr>
+                    <tr>
+                        <td>kadi chawal full</td>
+                        <td>2</td>
+                        <td>₹<span>250</span></td>
+                        <td>₹<span>500</span></td>
+                    </tr>
+                </table>
             </div>
 
-            <!-- new cart system -->
-            <div class="great_matter mt-4 mb-5">
-                <p>Dated:-<span><?php echo $res['b_date']; ?></span></p>
-                <p>Order Total <span>₹<?php echo $res['b_pay_amount']; ?></span></p>
+            <div class="total-price">
+            <table>
+                    <tr >
+                        <th class="text-center">Total:</th>
+                        <th class="text-center">₹<span>5000</span></th>
+                    </tr>
+                </table>
             </div>
 
-            <?php
-                    }
-                  }
-                ?>
-  
-  </div>
-            
-      
+
+
+        </div>
+    </div>
 </section>
+
+
 <?php include 'footer.php'; ?>

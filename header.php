@@ -90,7 +90,7 @@ require "config.inc.php";
               ?>
               <!--  -->
               <div class="shopping">
-                <a href="cart.php">
+                <a href="cart.php" id="cart" class="cart" data-totalitems="0">
                   <svg type="button" value="#" xmlns="#" width="50" height="20" fill="currentColor"
                     class="bi bi-bag-check-fill text-white" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -124,9 +124,9 @@ require "config.inc.php";
                         </div>
                       </div>
                     </div>
-
+                    
                     <div class="main-side-bar mt-4">
-                        <a href="cart.php"><img src="images/Images4.png" alt="">Cart</a>
+                        <a  href="cart.php"><img src="images/Images4.png" alt="">Cart</a>
                         <a href="order_details.php" class="effect-underline"><img src="images/Image2.png" alt="">Order</a>
                         <a href="logout.php" class="text-underline effect-underline"><img src="images/images3.png" alt="">Customer Support</a>
                         <a href="logout.php" class="text-underline effect-underline"><img src="images/images1.png" alt="">Logout</a>
