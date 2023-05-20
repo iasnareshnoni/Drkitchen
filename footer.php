@@ -141,21 +141,13 @@
 	var name = $('#name').val();
 	var email = $('#email').val();
 	var phone = $('#phone').val();
+	var pin = $('#pin').val();
 	var address = $('#address').val();
 
 	if(name == "" || email == "" || phone == "" || address == ""){
        alert("Every field should be filled.");
 	}else{
 
-
-	// alert(totalAmount);
-	// alert(product_id);
-	// alert(name);
-	// alert(email);
-	// alert(phone);
-	// alert(address);
-	// alert(product_amount);
-	// alert(product_id);
     var options = {
     "key": "rzp_test_bCBsuRFsBDTkkS",
     "amount": totalAmount * 100, // 2000 paise = INR 20
@@ -168,10 +160,9 @@
             type: 'post',
             dataType: 'json',
             data: {
-                razorpay_payment_id: response.razorpay_payment_id , totalAmount : totalAmount , name : name, email : email, phone : phone, address : address, product_id : product_id, product_amount: product_amount, product_qty : product_qty, product_img: product_img
+                razorpay_payment_id: response.razorpay_payment_id , totalAmount : totalAmount , name : name, email : email, phone : phone, address : address, product_id : product_id, product_amount: product_amount, product_qty : product_qty, product_img: product_img, pin : pin
             }, 
             success: function (msg) {
-
                window.location.href = 'success.php';
             }
         });

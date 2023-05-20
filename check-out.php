@@ -72,16 +72,19 @@
                 <div class="cardd">
                     <form action="">
                         <p>
-                            <input type="text" placeholder="name" name="name" id="name" required>
+                            <input type="text" placeholder="Name" name="name" id="name" required>
                         </p>
                         <p>
-                            <input type="email" placeholder="email" name="email" id="email" required>
+                            <input type="email" placeholder="Email" name="email" id="email" required>
                         </p>
                         <p>
-                            <input type="text" placeholder="address" name="address" id="address" required > 
+                            <input type="text" placeholder="Pin Code" name="pin" id="pin" required > 
                         </p>
                         <p>
-                            <input type="phone" placeholder="phone" name="phone" id="phone"  required  >
+                            <input type="text" placeholder="Street, Gali no. , Buliding No., Full Address" name="address" id="address" required > 
+                        </p>
+                        <p>
+                            <input type="phone" placeholder="Phone" name="phone" id="phone"  required  >
                         </p>
                    
                 </div>

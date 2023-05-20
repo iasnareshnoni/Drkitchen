@@ -170,13 +170,13 @@ if(isset($_GET['user_id'])){
             <div class="tab-content p-3">
                 <div class="tab-pane active" id="profile">
                   <?php
-                  $query = mysqli_query($con,"SELECT * FROM billing_address WHERE b_id = $user");
+                  $query = mysqli_query($con,"SELECT * FROM billing_address1 CROSS JOIN order_details WHERE b_id = $user");
                   if( mysqli_num_rows($query)){
                     while( $res = mysqli_fetch_assoc($query)){
                   ?>
 
                
-                    <h5 class="mb-3"><?php echo $res['b_product_name']; ?></h5>
+                    <h5 class="mb-3"><?php echo $res['b_name']; ?></h5>
                     <div class="row">
                         <div class="col-md-6 mt-4">
                            <u> <h6>Email</h6></u>
@@ -202,7 +202,7 @@ if(isset($_GET['user_id'])){
                         <div class="col-md-4">
                             <h6>products</h6>
                             <?php 
-                               $product = explode(',', $res['b_product']); 
+                               $product = explode(',', $res['order_product']); 
                                foreach($product as $prod){
                              ?>
                             <p class="badge badge-success p-2"><?php echo $prod; ?></p> <br>
@@ -213,7 +213,7 @@ if(isset($_GET['user_id'])){
                         <div class=" col-md-4">
                             <h6>Quantity</h6>
                             <?php 
-                               $Quantity = explode(',', $res['b_qty']); 
+                               $Quantity = explode(',', $res['order_qty']); 
                                foreach($Quantity as $qty){
                              ?>
                             <p class="badge badge-success p-2"><?php echo $qty; ?></p><br>
@@ -224,7 +224,7 @@ if(isset($_GET['user_id'])){
                         <div class=" col-md-4">
                             <h6>Prices</h6>
                             <?php 
-                               $price = explode(',', $res['b_total']); 
+                               $price = explode(',', $res['order_total']); 
                                foreach($price as $prices){
                              ?>
                             <p class="badge badge-success p-2"><?php echo $prices; ?></p><br>

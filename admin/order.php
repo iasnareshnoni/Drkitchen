@@ -23,7 +23,7 @@
                     <?php
                     $con = mysqli_connect('localhost','root','','drkitchen');
 
-                  $sql = "SELECT * FROM billing_address";
+                  $sql = "SELECT * FROM order_details CROSS JOIN billing_address1";
                   $query = mysqli_query($con, $sql);
 
                   $row = mysqli_num_rows($query);
@@ -36,18 +36,18 @@
                       
                  <?php ?>
                       <td><?php echo $i++; ?></td>
-                      <td><a class="link" href="order_detail.php?user_id=<?php echo $res['b_id']; ?>"><?php echo $res['b_product_name']; ?></a></td>
+                      <td><a class="link" href="order_detail.php?user_id=<?php echo $res['b_id']; ?>"><?php echo $res['b_name']; ?></a></td>
                       <td><?php echo $res['b_address']; ?></td>
                       <td><?php echo $res['b_phone']; ?></td>
                       <?php
-                        $status = $res['b_status'];
-                       if($status == 0){
+                        $status = $res['order_status'];
+                       if($status == 1){
                         ?>
                           <td><span><?php echo "Deliverd"; ?></span></td>              
                        <?php
                        }else{
                         ?>
-                        <td><a href="" class="btn btn-primary store"  data-val="<?php echo $status; ?>" data-id="<?php echo $res['b_id']; ?>" >Pending</a></td>
+                        <td><a href="" class="btn btn-primary store"  data-val="<?php echo $status; ?>" data-id="<?php echo $res['order_id']; ?>" >Pending</a></td>
                         <?php
                        }
                       ?>
@@ -147,8 +147,8 @@
         e.preventDefault();
          var value = $(this).data("val");
          var id = $(this).data("id");
-         if( value == 1){
-          value = 0;
+         if( value == 0){
+          value = 1;
          }
          $.ajax({
           url : 'update-order.php',

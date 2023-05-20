@@ -4,7 +4,7 @@
     $status = $_POST['value'];
     $id = $_POST['id'];
 
-    $update_status = mysqli_query($con,"UPDATE billing_address SET b_status = $status WHERE b_id = $id");
+    $update_status = mysqli_query($con,"UPDATE order_details SET order_status = $status WHERE order_id = $id");
 
     if($update_status){
         echo 1;
