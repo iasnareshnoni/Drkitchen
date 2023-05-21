@@ -45,8 +45,8 @@
       </li> -->
 
       <li>
-        <a href="login.php" target="_blank">
-          <i class="zmdi zmdi-lock"></i> <span>Login</span>
+        <a href="logout.php" target="_blank">
+          <i class="zmdi zmdi-lock"></i> <span>Logout Here</span>
         </a>
       </li>
 

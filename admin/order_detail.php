@@ -170,12 +170,10 @@ if(isset($_GET['user_id'])){
             <div class="tab-content p-3">
                 <div class="tab-pane active" id="profile">
                   <?php
-                  $query = mysqli_query($con,"SELECT * FROM billing_address1 CROSS JOIN order_details WHERE b_id = $user");
-                  if( mysqli_num_rows($query)){
-                    while( $res = mysqli_fetch_assoc($query)){
+                  $query = mysqli_query($con,"SELECT * FROM billing_address1 CROSS JOIN order_details WHERE order_id = $user");
+                  if( mysqli_num_rows($query) > 0){
+                     $res = mysqli_fetch_assoc($query)
                   ?>
-
-               
                     <h5 class="mb-3"><?php echo $res['b_name']; ?></h5>
                     <div class="row">
                         <div class="col-md-6 mt-4">
@@ -237,7 +235,7 @@ if(isset($_GET['user_id'])){
                         <?php
 
                                }
-                              }
+                              
                           ?>
                         <!-- <div class="col-md-12">
                             <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>

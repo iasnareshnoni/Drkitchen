@@ -2,6 +2,9 @@
   session_start();
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
+  if(isset($_SESSION['email'])){
+        header('location:index.php');
+  }else{
 
   require 'vendor/autoload.php';
   include "config.inc.php";
@@ -34,7 +37,19 @@
 
         $mail->isHTML(true);								
         $mail->Subject = 'Reset Your Password';
-        $mail->Body = $otp;
+        $mail->Body = '
+                      <html>
+                         <body>
+                         <h2>Reset Your Password</h2>
+                         <hr>
+                         <p>Please Not Share Your One Time Password (OTP) to anyone.</p>
+                         <p>This OTP is Valid for 5 Minutes Only </p>
+                         <p><b>'. $otp .'<b></p>
+                         <p>Enter OTP to reset Your password.</p>
+                         <hr>
+                         <p style="text-align:center">Thank You. </p>
+                         </body>
+                      </html>';
         $mail->AltBody = 'Your password Here';
         $mail->send();
         if($mail){
@@ -136,3 +151,6 @@
 </body>
 
 </html>
+<?php
+  }
+?>

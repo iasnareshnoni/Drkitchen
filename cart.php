@@ -279,6 +279,8 @@ include 'header.php';
     <script>
        $(document).ready(function(){
         
+        //  Update the cart values
+
         $('.cart_qty').on('change',function(){
           var qty = $(this).val();
           var u_id = $(this).data("u_id");

@@ -11,8 +11,8 @@
     padding: 8px;
     background: azure;
     color: #009d70;
-    /* text-align: center; */
-    width: 82%;
+    text-align: center;
+    width: 44%;
     font-family: 'Fredoka', sans-serif;
 }
 
@@ -29,11 +29,11 @@
 .main-email-table td{
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 6px;
     background: azure;
     color: #000;
-    /* text-align: center; */
-    width: 82%;
+    text-align: center;
+    /* width: 78%; */
     font-family: 'Fredoka', sans-serif;
 }
 
@@ -42,6 +42,13 @@
     border-bottom: 1px solid black;
     font-size: 57px;
     font-family: 'Fredoka', sans-serif;
+}
+.border{
+    width:100%;
+    height: 12px;
+    background-color: red;
+    margin-top: 25px;
+    border-radius: 10px;
 }
 
 .hero_area {
@@ -89,17 +96,22 @@
 </section>
 
 
-<section style="    margin-bottom: 19rem;     margin-top: 9rem;">
+<section style="margin-bottom: 19rem;margin-top: 9rem;">
     <div class="container">
         <div class="main-email-table">
             <h2>Order History</h2>
+                <?php
+                  $sql = mysqli_query($con,"SELECT * FROM order_details WHERE order_user = '$user' ORDER BY order_id DESC");
+                  if( mysqli_num_rows($sql) > 0){
+                    while($row = mysqli_fetch_array($sql)){
+                 ?>
             <div class="order-details">
                 <table>
                     <tr>
-                        <th>ORDER NUMBER:<span>&nbsp;&nbsp;#13265232466</span> </th>
+                        <th>ORDER NUMBER:<span>&nbsp;&nbsp;<?php echo $row['order_pin']; ?></span> </th>
                     </tr>
                     <tr>
-                        <th>DATE:<span>&nbsp;&nbsp;23/12/2023</span> </th>
+                        <th>DATE:<span>&nbsp;&nbsp;<?php echo $row['order_date']; ?></span> </th>
                     </tr>
                 </table>
             </div>
@@ -109,26 +121,12 @@
                     <tr>
                         <th>Product</th>
                         <th>Qty</th>
-                        <th>Each</th>
                         <th>Total</th>
                     </tr>
                     <tr>
-                        <td>thali full</td>
-                        <td>2</td>
-                        <td>₹<span>250</span></td>
-                        <td>₹<span>500</span></td>
-                    </tr>
-                    <tr>
-                        <td>rajma chawal full</td>
-                        <td>3</td>
-                        <td>₹<span>250</span></td>
-                        <td>₹<span>750</span></td>
-                    </tr>
-                    <tr>
-                        <td>kadi chawal full</td>
-                        <td>2</td>
-                        <td>₹<span>250</span></td>
-                        <td>₹<span>500</span></td>
+                        <td><?php  foreach(explode(',',$row['order_product']) as $p){ echo $p .'<br>';} ?></td>
+                        <td><?php  foreach(explode(',',$row['order_qty']) as $q){ echo $q .'<br>';} ?></td>
+                        <td><span><?php  foreach(explode(',',$row['order_price']) as $pr){ echo '₹ '.$pr .'<br>';} ?></span></td>
                     </tr>
                 </table>
             </div>
@@ -137,15 +135,19 @@
             <table>
                     <tr >
                         <th class="text-center">Total:</th>
-                        <th class="text-center">₹<span>5000</span></th>
+                        <th class="text-center">₹<span><?php echo $row['order_total']; ?></span></th>
                     </tr>
                 </table>
             </div>
-
-
+            <div class="border"></div>
+            <?php       
+                    }
+                  }
+                ?>
 
         </div>
     </div>
+
 </section>
 
 

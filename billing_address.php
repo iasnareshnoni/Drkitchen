@@ -26,15 +26,14 @@ require_once "config.inc.php";
    $order_PIN = "#DRODER" . rand(1,100000);
 
 
-    $sql1 = "INSERT INTO order_details (order_product, order_qty, order_price, order_payment_id , order_total, order_date, order_user) VALUES ('$product','$qty','$total','$payment_id','$total_amount','$date','$user');";
+    $sql1 = "INSERT INTO order_details (order_product, order_qty, order_price, order_payment_id , order_total, order_date, order_user,order_pin) VALUES ('$product','$qty','$total','$payment_id','$total_amount','$date','$user','$order_PIN');";
     $sql1 .= "INSERT INTO billing_address1 (b_name, b_email, b_address, b_phone ,user) VALUES ('$name','$email','$address','$phone','$user')";
 
     $query = mysqli_multi_query($con,$sql1);
          
    
-    if($query){
-         
-        $mail = new PHPMailer(true);
+    if($query){     
+       $mail = new PHPMailer(true);
        
        $mail->SMTPDebug = 0;									
        $mail->isSMTP();										

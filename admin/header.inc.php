@@ -32,7 +32,12 @@
   <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet"/>
-  
+  <style>
+     .link{
+      text-decoration: underline;
+      color: blue;
+     }
+  </style>
 </head>
 
 <body class="bg-theme bg-theme1">

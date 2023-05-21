@@ -101,7 +101,7 @@
       $('.add-to-cart').on('click',function(e){
         e.preventDefault();
        var id = $(this).data('id');
-       var pic_class = $(this);
+      //  var pic_class = $(this);
        
        $.ajax({
         url : 'add-cart.php',
@@ -110,8 +110,10 @@
         success : function(data){
          if( data == 0){
           alert("already in cart");
-         }else{
+         }else if(data == 1){
            location.reload();
+         }else{
+           window.location.href = "login.php";
          }
         }
        })

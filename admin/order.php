@@ -6,9 +6,9 @@
       <div class="row mt-3">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Product Table</h5>
-			  <div class="table-responsive">
+            <!-- < class="card-body"> -->
+              <h5 class="card-title text-center m-4" style="text-decoration: underline;">Customer Order</h5>
+			  <!-- <div class="table-responsive">
                <table class="table">
                   <thead>
                     <tr>
@@ -23,7 +23,7 @@
                     <?php
                     $con = mysqli_connect('localhost','root','','drkitchen');
 
-                  $sql = "SELECT * FROM order_details CROSS JOIN billing_address1";
+                  $sql = "SELECT * FROM order_details INNER JOIN billing_address1 ON order_details.order_user = billing_address1.user";
                   $query = mysqli_query($con, $sql);
 
                   $row = mysqli_num_rows($query);
@@ -63,7 +63,50 @@
             </div>
             </div>
           </div>
-        </div>
+        </div> -->
+        <div class="table-responsive">
+                 <table class="table align-items-center table-flush table-borderless">
+                  <thead>
+                   <tr>
+                     <th>Order ID</th>
+                     <th>Payment ID</th>
+                     <th>Amount</th>
+                     <th>Date</th>
+                     <th>Shipping</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                    <?php 
+                    include "config.inc.php";
+                    $select_order = mysqli_query($con,"SELECT order_id, order_pin,order_payment_id, order_total, order_date, order_status FROM order_details ORDER BY order_id desc");
+                    if( mysqli_num_rows($select_order) > 0){
+                      while($row_order = mysqli_fetch_array($select_order)){
+                    ?>
+                    <tr>
+                    <td><a class="link" href="order_detail.php?user_id=<?php echo $row_order['order_id']; ?>"><?php echo $row_order['order_pin']; ?></a></td>
+                    <td><?php echo $row_order['order_payment_id']; ?></td>
+                    <td>₹ <?php echo $row_order['order_total']; ?></td>
+                    <td><?php echo $row_order['order_date']; ?></td>
+					          <?php
+                        $status = $row_order['order_status'];
+                       if($status == 1){
+                        ?>
+                          <td><span><?php echo "Delivered"; ?></span></td>              
+                       <?php
+                       }else{
+                        ?>
+                        <td><a href="" class="btn btn-success store"  data-val="<?php echo $status; ?>" data-id="<?php echo $row_order['order_id']; ?>" >Pending</a></td>
+                        <?php
+                       }
+                      ?>
+                   </tr>
+                    <?php
+                      }
+                    }
+                    ?>
+
+                 </tbody></table>
+               </div>
        </div>
       </div>
     </div>

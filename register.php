@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(isset($_SESSION['email'])){
+   header('location:index.php');
+}else{
+$msg = "";
 require_once "config.inc.php";
 
 if(isset($_POST['submit'])){
@@ -9,19 +13,23 @@ if(isset($_POST['submit'])){
       $password = $_POST['password'];
       $hash = password_hash($password, PASSWORD_DEFAULT);   
 
-    $check = mysqli_query($con,"SELECT * FROM user WHERE user_email = '$email'");
-    if(mysqli_num_rows($check) > 0){
-         echo "<script>alert('Email is Already Registerd.');</script>";
-    }else{
-         $insert = mysqli_query($con,"INSERT INTO user (user_name,mobile,user_email,user_pass) VALUES ('$name','$mobile','$email','$hash')");
+      if($name == '' || $mobile == '' || $email == '' || $password == ''){
+           $msg = "All the Fields is Requird.";
+      }else{
+      $check = mysqli_query($con,"SELECT * FROM user WHERE user_email = '$email'");
+      if(mysqli_num_rows($check) > 0){
+          $msg = "Email is Already Registerd. Login Here";
+      }else{
 
+         $insert = mysqli_query($con,"INSERT INTO user (user_name,mobile,user_email,user_pass) VALUES ('$name','$mobile','$email','$hash')");
          if($insert){
-          header("location:login-from.php");
+          header("location:login.php");
          }else{
-          echo "<script>alert('Please try again after sometimes.');</script>";
+          $msg = "Something Wrong.";
          }
 
     }
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -87,9 +95,12 @@ if(isset($_POST['submit'])){
       <input placeholder='Password' name="password" type="text">
 			<div class="login"><input type="submit" name="submit" value="Register" style="background:transparent; color:white; border:none"></div>
       </form>
+      <div class="error mt-1"><?php echo $msg; ?></div>
 		</div>
 		<!-- <div class="fack"><a href="#"><i class="fa fa-question-circle"></i>Forgot password?</a></div> -->
-    <div class="fack"><a href="login-from.php"><i class="fa fa-question-circle"></i>Login</a></div>
+    <div class="fack"><a href="login.php"><i class="fa fa-question-circle"></i>Login</a>
+</div>
+   
 	</div>
 </div>
 
@@ -131,3 +142,6 @@ if(isset($_POST['submit'])){
 </body>
 
 </html>
+<?php
+}
+?>

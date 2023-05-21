@@ -1,4 +1,5 @@
-<?php
+<?php session_start();
+ if(isset($_POST['id'])){
  include "config.inc.php";
 
  $qty = $_POST['qty'];
@@ -13,5 +14,7 @@ if($update_cart){
 }else{
     echo 0;    
 }
-
+ }else{
+    echo "<script>window.history.back();</script>";
+ }
 ?>

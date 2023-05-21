@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2023 at 12:46 PM
+-- Generation Time: May 21, 2023 at 02:15 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,32 +45,25 @@ INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `adm
 -- --------------------------------------------------------
 
 --
--- Table structure for table `billing_address`
+-- Table structure for table `billing_address1`
 --
 
-CREATE TABLE `billing_address` (
+CREATE TABLE `billing_address1` (
   `b_id` int(11) NOT NULL,
-  `b_product_name` varchar(50) NOT NULL,
-  `b_email` varchar(100) NOT NULL,
-  `b_address` text NOT NULL,
+  `b_name` varchar(255) NOT NULL,
+  `b_email` varchar(255) NOT NULL,
+  `b_address` varchar(255) NOT NULL,
   `b_phone` varchar(13) NOT NULL,
-  `b_product` varchar(80) NOT NULL,
-  `b_qty` varchar(255) NOT NULL,
-  `b_total` varchar(50) NOT NULL,
-  `b_payment_id` varchar(255) NOT NULL,
-  `b_pay_amount` varchar(255) NOT NULL,
-  `b_status` tinyint(1) NOT NULL DEFAULT 0,
-  `b_image` varchar(255) NOT NULL,
-  `b_date` date NOT NULL,
   `user` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `billing_address`
+-- Dumping data for table `billing_address1`
 --
 
-INSERT INTO `billing_address` (`b_id`, `b_product_name`, `b_email`, `b_address`, `b_phone`, `b_product`, `b_qty`, `b_total`, `b_payment_id`, `b_pay_amount`, `b_status`, `b_image`, `b_date`, `user`) VALUES
-(5, 'Unikayoga', 'unikayoga@gmail.com', '180B Bencoolen Street, The Bencoolen, #08-01, Singapore 189648.', '83007895', 'Chhole Rice, Dal Rice', '1, 1', '79, 69', ' pay_Lr7fg0a5i8Rpag', '158', 0, 'chole and rice.jpg, Dal and rice.jpg', '2023-05-18', 'iasnareshnoni2@gmail.com');
+INSERT INTO `billing_address1` (`b_id`, `b_name`, `b_email`, `b_address`, `b_phone`, `user`) VALUES
+(17, 'Pankaj Kumar', 'nareshaggarwal2022@gmail.com', '124507 Gali No. 4, Durga Coloney, Bahadurgarh, Haryana', '8708175594', 'iasnareshnoni2@gmail.com'),
+(19, 'Naresh', 'nareshaggarwal2022@gmail.com', '124507 Gali No. 4, Durga Coloney, Bahadurgarh, Haryana', '7027450119', 'iasnareshnoni2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -109,6 +102,33 @@ INSERT INTO `categories` (`category_id`, `category_title`, `product`) VALUES
 (2, 'Normal Thali', 4),
 (3, 'Snacks', 18),
 (4, 'Summer Special', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `order_id` int(11) NOT NULL,
+  `order_product` varchar(255) NOT NULL,
+  `order_qty` varchar(255) NOT NULL,
+  `order_price` varchar(255) NOT NULL,
+  `order_payment_id` varchar(255) NOT NULL,
+  `order_total` varchar(255) NOT NULL,
+  `order_status` tinyint(1) NOT NULL DEFAULT 0,
+  `order_date` date NOT NULL,
+  `order_user` varchar(255) NOT NULL,
+  `order_pin` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_id`, `order_product`, `order_qty`, `order_price`, `order_payment_id`, `order_total`, `order_status`, `order_date`, `order_user`, `order_pin`) VALUES
+(18, 'IDLI SAMBAR, PANEER PAKODA, VEG PIZZA', '1, 7, 6', '99, 623, 534', 'pay_Lrv7ztVXlbmZLJ', '1266', 1, '2023-05-20', 'iasnareshnoni2@gmail.com', '#DRORDER0986'),
+(19, 'BREAD ROLL, WHITE SAUCE PASTA, VEG GRILLED SANDWICH, BREAD PAKODA', '6, 4, 7, 10', '210, 280, 315, 200', 'pay_LsHrNvkp36P3Ju', '1015', 1, '2023-05-21', 'iasnareshnoni2@gmail.com', '#DRODER27902');
 
 -- --------------------------------------------------------
 
@@ -179,9 +199,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `mobile`, `user_email`, `user_pass`) VALUES
 (1, 'Naresh', '08708175594', 'iasnareshnoni2@gmail.com', '$2y$10$N4q9xyGQ4IicqpQb6LmAO.kYwuKLZ28jBMg6Set2bojCB7cdSU8EK'),
-(2, 'Noni', '7027450119', 'nareshaggarwal2022@gmail.com', '$2y$10$pmRXKkchrm9HNHtTiw1d1uq..FJ5FcoPxL33/.iwVrOnVcJwps6Ja'),
-(3, 'Pankaj', '111111111111', 'pankajbarnwal198@gmail.com', '$2y$10$hDSTIDteGx2eJ1WfBuN4feg3f3fjcB.9D/yfaBYxxM829h.1ZihHq'),
-(5, 'Pankaj', '7878', 'hogato8825@glumark.com', '$2y$10$l2ape19wmHBo7wyZXx7IJ.5v1cA0BJDGb/4BlC0eHsCBw8fsHXbXS');
+(2, 'Noni', '7027450119', 'nareshaggarwal2022@gmail.com', '$2y$10$4pKpdrUfzDTRRg7Yt9BaUe0cos3JS8oYhZbjdedHjlZAPRz7s.kqq'),
+(6, '', '', '', '$2y$10$v6JQbgA1fxb3PIfVcM6uSuSILEigTXX6suyG7t7DTGa.6KDfjlD6S');
 
 --
 -- Indexes for dumped tables
@@ -194,9 +213,9 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `billing_address`
+-- Indexes for table `billing_address1`
 --
-ALTER TABLE `billing_address`
+ALTER TABLE `billing_address1`
   ADD PRIMARY KEY (`b_id`);
 
 --
@@ -210,6 +229,12 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `product`
@@ -234,22 +259,28 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `billing_address`
+-- AUTO_INCREMENT for table `billing_address1`
 --
-ALTER TABLE `billing_address`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `billing_address1`
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -261,7 +292,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

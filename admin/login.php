@@ -1,11 +1,15 @@
 
 <?php
  session_start();
+ $msg = "";
  require_once "config.inc.php";
  if(isset($_POST['submit'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
   
+  if($username == '' || $password == ''){
+    $msg = "All Fields are Requird.";
+  }else{
   $check = mysqli_query($con,"SELECT * FROM admin WHERE admin_email = '$username' && admin_pass = '$password'");
   if(mysqli_num_rows($check) > 0){
      $result = mysqli_fetch_assoc($check);
@@ -14,8 +18,9 @@
 
       header('location:index.php');
   }else{
-    echo " No Record Found.";
+    $msg = " No Record Found.";
   }
+}
  }
 ?>
 <!DOCTYPE html>
@@ -62,7 +67,13 @@
   <!-- responsive style -->
   <link href="../css/responsive.css" rel="stylesheet" />
   <link rel="stylesheet" href="../css/form.css">
-
+  <style>
+     .error{
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+     }
+  </style>
 </head>
 
 <body>
@@ -75,10 +86,11 @@
 		<div class="state"><br><i class="fa fa-unlock-alt"></i><br><img class="login-logo" src="../images/logo.png" alt=""></div>
 		<div class="form">
       <form action="" method="POST">
-			<input placeholder='Email' type="text" name="username" required>
-			<input placeholder='Password' type="text" name="password" required>
+			<input placeholder='Email' type="text" name="username" >
+			<input placeholder='Password' type="text" name="password" >
 			<div class="login"><input type="submit" value="Login" name="submit"  class="login" style="background:transparent;color:white;border:none;margin-top: initial;"></div>
       </form>
+      <div class="error"><?php echo $msg; ?></div>
 		</div>
 		<!-- <div class="fack"><a href="#"><i class="fa fa-question-circle"></i>Forgot password?</a></div>
     <div class="fack"><a href="register.php"><i class="fa fa-question-circle"></i>Ragister Now</a></div>
