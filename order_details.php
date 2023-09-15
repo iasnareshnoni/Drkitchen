@@ -1,8 +1,8 @@
-<?php include 'header.php';
+<?php session_start();
   include "config.inc.php";
   if(isset($_SESSION['email'])){
     $user = $_SESSION['email'];
-  }
+    include 'header.php';
 ?>
 <style>
  .main-email-table th {
@@ -11,7 +11,7 @@
     padding: 8px;
     background: azure;
     color: #009d70;
-    text-align: center;
+    /* text-align: center; */
     width: 44%;
     font-family: 'Fredoka', sans-serif;
 }
@@ -24,6 +24,9 @@
     /* text-align: center; */
     width: 82%;
     font-family: 'Fredoka', sans-serif;
+}
+.product-buy th{
+    text-align:center;
 }
 
 .main-email-table td{
@@ -125,8 +128,8 @@
                     </tr>
                     <tr>
                         <td><?php  foreach(explode(',',$row['order_product']) as $p){ echo $p .'<br>';} ?></td>
-                        <td><?php  foreach(explode(',',$row['order_qty']) as $q){ echo $q .'<br>';} ?></td>
-                        <td><span><?php  foreach(explode(',',$row['order_price']) as $pr){ echo '₹ '.$pr .'<br>';} ?></span></td>
+                        <td style="text-align:center"><?php  foreach(explode(',',$row['order_qty']) as $q){ echo $q .'<br>';} ?></td>
+                        <td style="text-align:center"><span><?php  foreach(explode(',',$row['order_price']) as $pr){ echo '₹ '.$pr .'<br>';} ?></span></td>
                     </tr>
                 </table>
             </div>
@@ -152,3 +155,8 @@
 
 
 <?php include 'footer.php'; ?>
+<?php
+  }else{
+    header('location:login.php');
+  }
+?>

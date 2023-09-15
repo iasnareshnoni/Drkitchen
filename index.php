@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+include 'header.php'; ?>
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
@@ -18,32 +20,7 @@
             when looking at its layout. The point of using Lorem Ipsum
           </p>
         </div>
-        <!-- <div class="find_container ">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <form>
-                  <div class="form-row ">
-                    <div class="form-group col-lg-5">
-                      <input type="text" class="form-control" id="inputHotel" placeholder="Restaurant Name">
-                    </div>
-                    <div class="form-group col-lg-3">
-                      <input type="text" class="form-control" id="inputLocation" placeholder="All Locations">
-                      <span class="location_icon">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      </span>
-                    </div>
-                    <div class="form-group col-lg-3">
-                      <div class="btn-box">
-                        <button type="submit" class="btn ">Search</button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> -->
+  
       </div>
     </div>
   </div>
@@ -106,7 +83,7 @@
       <div class="col-sm-6 col-md-4 mx-auto">
         <div class="box">
           <div class="img-box">
-            <img src="images/r1.jpg" class="box-img" alt="">
+            <a href="#Breakfast"><img src="images/r1.jpg" class="box-img" alt="" ></a>
           </div>
           <div class="detail-box">
             <h4>
@@ -121,7 +98,7 @@
       <div class="col-sm-6 col-md-4 mx-auto">
         <div class="box">
           <div class="img-box">
-            <img src="images/r2.jpg" class="box-img" alt="">
+            <a href="#Lunch"><img src="images/r2.jpg" class="box-img" alt=""></a>
           </div>
           <div class="detail-box">
             <h4>
@@ -136,7 +113,7 @@
       <div class="col-sm-6 col-md-4 mx-auto">
         <div class="box">
           <div class="img-box">
-            <img src="images/r3.jpg" class="box-img" alt="">
+            <a href="#Dinner"><img src="images/r3.jpg" class="box-img" alt=""></a>
           </div>
           <div class="detail-box">
             <h4>
@@ -172,213 +149,233 @@
   </div>
 </section>
 
-<section>
+<section class="">
+
   <div class="container-fluid">
 
-    <div id="" class="tabcontent">
+    <div id="Breakfast" class="tabcontent">
       <div class="container">
         <div
           class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
           <h2 class="text-dark">Normal Thali</h2>
           <div class="row mt-3">
-          <?php
-        
-            $product_select = mysqli_query($con,"SELECT * FROM product WHERE p_status = 1 AND p_cate = 2");
-            if( mysqli_num_rows($product_select) > 0){
-              while( $res1 = mysqli_fetch_assoc($product_select)){
-        ?>
-            <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
-              <div class="product">
-                <a href="#" class="img-prod">
-                  <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
-                  <span class="status">30%</span>
-                  <div class="overlay"></div>
-                </a>
-                <div class="text py-3 pb-4 px-3 text-center">
-                  <h3>
-                    <a href="#"><?php echo $res1['p_name']; ?></a>
-                  </h3>
+            <?php
 
-                  <!-- three cart buttons -->
-                  <div class="cart">
-                    <div class="price">
-                      <div class="vert">
-                        <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+            $product_select = mysqli_query($con, "SELECT * FROM product WHERE p_status = 1 AND p_cate = 2");
+            if (mysqli_num_rows($product_select) > 0) {
+              while ($res1 = mysqli_fetch_assoc($product_select)) {
+                ?>
+
+                <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
+                  <div class="product">
+                    <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="img-prod add-to-cart">
+                      <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
+                      <span class="status">30%</span>
+                      <div class="overlay"></div>
+                    </a>
+                    <div class="text py-3 pb-4 px-3 text-center">
+                      <h3>
+                        <a href="#">
+                          <?php echo $res1['p_name']; ?>
+                        </a>
+                      </h3>
+
+                      <!-- three cart buttons -->
+                      <div class="cart">
+                        <div class="price">
+                          <div class="vert">
+                            <div class="price_new">₹<?php echo $res1['p_price']; ?>
+                            
+                            </div>
+                            <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
                               class="fa-sharp fa-solid fa-heart"></i></a></div> -->
-                        <!-- <div class="price_old">$550.00</div> -->
-                        <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
-                              class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                            <!-- <div class="price_old">$550.00</div> -->
+                            <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i
+                                  style="color: #9aae46;" class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
                   </div>
-
                 </div>
-              </div>
-            </div>
-            <?php
-           }
-          }
-        ?>
-            </div>
+
+                <?php
+              }
+            }
+            ?>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
-    <div id="Breakfast" class="tabcontent">
-      <div class="container">
-        <div
-          class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2 class="text-dark">Snacks</h2>
-          <div class="row mt-3">
+  <div id="Lunch" class="tabcontent">
+    <div class="container">
+      <div
+        class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
+        <h2 class="text-dark">Snacks</h2>
+        <div class="row mt-3">
           <?php
-        
-            $product_select = mysqli_query($con,"SELECT * FROM product WHERE p_status = 1 AND p_cate = 3");
-            if( mysqli_num_rows($product_select) > 0){
-              while( $res1 = mysqli_fetch_assoc($product_select)){
-        ?>
-            <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
-              <div class="product">
-                <a href="#" class="img-prod">
-                  <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
-                  <span class="status">30%</span>
-                  <div class="overlay"></div>
-                </a>
-                <div class="text py-3 pb-4 px-3 text-center">
-                  <h3>
-                    <a href="#"><?php echo $res1['p_name']; ?></a>
-                  </h3>
 
-                  <!-- three cart buttons -->
-                  <div class="cart">
-                    <div class="price">
-                      <div class="vert">
-                        <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+          $product_select = mysqli_query($con, "SELECT * FROM product WHERE p_status = 1 AND p_cate = 3");
+          if (mysqli_num_rows($product_select) > 0) {
+            while ($res1 = mysqli_fetch_assoc($product_select)) {
+              ?>
+              <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
+                <div class="product">
+                  <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="img-prod add-to-cart">
+                    <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
+                    <span class="status">30%</span>
+                    <div class="overlay"></div>
+                  </a>
+                  <div class="text py-3 pb-4 px-3 text-center">
+                    <h3>
+                      <a href="#">
+                        <?php echo $res1['p_name']; ?>
+                      </a>
+                    </h3>
+
+                    <!-- three cart buttons -->
+                    <div class="cart">
+                      <div class="price">
+                        <div class="vert">
+                          <div class="price_new">₹<?php echo $res1['p_price']; ?>
+                           
+                          </div>
+                          <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
                               class="fa-sharp fa-solid fa-heart"></i></a></div> -->
-                        <!-- <div class="price_old">$550.00</div> -->
-                        <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
-                              class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                          <!-- <div class="price_old">$550.00</div> -->
+                          <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i
+                                style="color: #9aae46;" class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
-            <?php
-           }
+              <?php
+            }
           }
-        ?>
-            </div>
-          </div>
+          ?>
         </div>
       </div>
     </div>
+  </div>
+  </div>
 
-    <div id="Breakfast" class="tabcontent">
-      <div class="container">
-        <div
-          class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2 class="text-dark" >Summer Special</h2>
-          <div class="row mt-3">
+  <div  class="tabcontent">
+    <div class="container">
+      <div
+        class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
+        <h2 class="text-dark">Summer Special</h2>
+        <div class="row mt-3">
           <?php
-        
-            $product_select = mysqli_query($con,"SELECT * FROM product WHERE p_status = 1 AND p_cate = 4");
-            if( mysqli_num_rows($product_select) > 0){
-              while( $res1 = mysqli_fetch_assoc($product_select)){
-        ?>
-            <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
-              <div class="product">
-                <a href="#" class="img-prod">
-                  <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
-                  <span class="status">30%</span>
-                  <div class="overlay"></div>
-                </a>
-                <div class="text py-3 pb-4 px-3 text-center">
-                  <h3>
-                    <a href="#"><?php echo $res1['p_name']; ?></a>
-                  </h3>
 
-                  <!-- three cart buttons -->
-                  <div class="cart">
-                    <div class="price">
-                      <div class="vert">
-                        <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+          $product_select = mysqli_query($con, "SELECT * FROM product WHERE p_status = 1 AND p_cate = 4");
+          if (mysqli_num_rows($product_select) > 0) {
+            while ($res1 = mysqli_fetch_assoc($product_select)) {
+              ?>
+              <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
+                <div class="product">
+                  <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="img-prod add-to-cart">
+                    <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
+                    <span class="status">30%</span>
+                    <div class="overlay"></div>
+                  </a>
+                  <div class="text py-3 pb-4 px-3 text-center">
+                    <h3>
+                      <a href="#">
+                        <?php echo $res1['p_name']; ?>
+                      </a>
+                    </h3>
+
+                    <!-- three cart buttons -->
+                    <div class="cart">
+                      <div class="price">
+                        <div class="vert">
+                          <div class="price_new">₹<?php echo $res1['p_price']; ?>
+                           
+                          </div>
+                          <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
                               class="fa-sharp fa-solid fa-heart"></i></a></div> -->
-                        <!-- <div class="price_old">$550.00</div> -->
-                        <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
-                              class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                          <!-- <div class="price_old">$550.00</div> -->
+                          <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i
+                                style="color: #9aae46;" class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
-            <?php
-           }
+              <?php
+            }
           }
-        ?>
-            </div>
-          </div>
+          ?>
         </div>
       </div>
     </div>
+  </div>
+  </div>
 
-    <div id="Breakfast" class="tabcontent">
-      <div class="container">
-        <div
-          class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
-          <h2 class="text-dark">Special Thali</h2>
-          <div class="row mt-3">
+  <div id="Dinner" class="tabcontent">
+    <div class="container">
+      <div
+        class="heading_container mt-4 mb-4 heading_center heading-menu text-center ftco-animate fadeInUp ftco-animated">
+        <h2 class="text-dark">Special Thali</h2>
+        <div class="row mt-3">
           <?php
-        
-            $product_select = mysqli_query($con,"SELECT * FROM product WHERE p_status = 1 AND p_cate = 1");
-            if( mysqli_num_rows($product_select) > 0){
-              while( $res1 = mysqli_fetch_assoc($product_select)){
-        ?>
-            <div class="col-md-3 col-lg-3 ftco-animate fadeInUp ftco-animated">
-              <div class="product">
-                <a href="#" class="img-prod">
-                  <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
-                  <span class="status">30%</span>
-                  <div class="overlay"></div>
-                </a>
-                <div class="text py-3 pb-4 px-3 text-center">
-                  <h3>
-                    <a href="#"><?php echo $res1['p_name']; ?></a>
-                  </h3>
 
-                  <!-- three cart buttons -->
-                  <div class="cart">
-                    <div class="price">
-                      <div class="vert">
-                        <div class="price_new">₹<?php echo $res1['p_price']; ?></div>
-                        <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
+          $product_select = mysqli_query($con, "SELECT * FROM product WHERE p_status = 1 AND p_cate = 1");
+          if (mysqli_num_rows($product_select) > 0) {
+            while ($res1 = mysqli_fetch_assoc($product_select)) {
+              ?>
+              <div class="col-md-4 col-lg-4 ftco-animate fadeInUp ftco-animated">
+                <div class="product">
+                  <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="img-prod add-to-cart">
+                    <img src="upload/<?php echo $res1['p_image']; ?>" class="img-fluid" alt="">
+                    <span class="status">30%</span>
+                    <div class="overlay"></div>
+                  </a>
+                  <div class="text py-3 pb-4 px-3 text-center">
+                    <h3>
+                      <a href="#">
+                        <?php echo $res1['p_name']; ?>
+                      </a>
+                    </h3>
+
+                    <!-- three cart buttons -->
+                    <div class="cart">
+                      <div class="price">
+                        <div class="vert">
+                          <div class="price_new">₹<?php echo $res1['p_price']; ?>
+                            
+                          </div>
+                          <!-- <div> <a href="#" class="like"><i style="color:#d6383d;"
                               class="fa-sharp fa-solid fa-heart"></i></a></div> -->
-                        <!-- <div class="price_old">$550.00</div> -->
-                        <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i style="color: #9aae46;"
-                              class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                          <!-- <div class="price_old">$550.00</div> -->
+                          <div> <a href="#" data-id="<?php echo $res1['p_id']; ?>" class="bay add-to-cart"><i
+                                style="color: #9aae46;" class="fa-sharp fa-solid fa-cart-shopping"></i></a></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
-            <?php
-           }
+              <div class="col-md-4 col-lg-4 ftco-animate fadeInUp ftco-animated"></div>
+              <?php
+            }
           }
-        ?>
-            </div>
-          </div>
+          ?>
         </div>
       </div>
     </div>
+  </div>
+  </div>
 
   </div>
 </section>
@@ -718,12 +715,12 @@
       <div class="row">
         <div class="col-md-4 col-lg-6">
           <div class="tiffin-data-one">
-            <img class="w-100" src="images/tiffin-menu-1.png" alt="">
+            <img class="w-100" src="images/1.png" alt="">
           </div>
         </div>
         <div class="col-md-4 col-lg-6">
           <div class="tiffin-data-two">
-            <img class="w-100" src="images/tiffin-menu-2.png" alt="">
+            <img class="w-100" src="images/2.png" alt="">
           </div>
         </div>
       </div>

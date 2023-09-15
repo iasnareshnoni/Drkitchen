@@ -109,9 +109,19 @@
         data : {id : id},
         success : function(data){
          if( data == 0){
-          alert("already in cart");
+          $("#error-message").html("Already In Your Cart").slideDown(1500,function(){
+            //  location.reload();
+            $("#error-message").slideUp();
+          });
+          $("#success-message").slideUp();
+          // alert("already in cart");
          }else if(data == 1){
-           location.reload();
+          $("#error-message").slideUp();
+          $("#success-message").html("Product Added Successful.").slideDown(1500,function(){
+            //  location.reload();
+            $("#success-message").slideUp();
+          });
+          //  location.reload();
          }else{
            window.location.href = "login.php";
          }
@@ -187,6 +197,25 @@
   });
 
 </script>
+<script>
+      // document.onkeydown = function(e) {
+      //   if(event.keyCode == 123) {
+      //   return false;
+      //   }
+      //   if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+      //   return false;
+      //   }
+      //   if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+      //   return false;
+      //   }
+      //   if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+      //   return false;
+      //   }
+      //   if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+      //   return false;
+      //   }
+      //   }
+  </script>
 
 
 

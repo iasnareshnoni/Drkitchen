@@ -23,11 +23,11 @@ require_once "config.inc.php";
    $payment_id = $_POST['razorpay_payment_id'];
    $total_amount = $_POST['totalAmount'];
    $date = date('Y-m-d H:i:s');
-   $order_PIN = "#DRODER" . rand(1,100000);
+   $order_PIN = "DRODER" . rand(1,100000);
 
 
     $sql1 = "INSERT INTO order_details (order_product, order_qty, order_price, order_payment_id , order_total, order_date, order_user,order_pin) VALUES ('$product','$qty','$total','$payment_id','$total_amount','$date','$user','$order_PIN');";
-    $sql1 .= "INSERT INTO billing_address1 (b_name, b_email, b_address, b_phone ,user) VALUES ('$name','$email','$address','$phone','$user')";
+    $sql1 .= "INSERT INTO billing_address1 (b_name, b_email, b_address, b_phone ,user,order_pin) VALUES ('$name','$email','$address','$phone','$user','$order_PIN')";
 
     $query = mysqli_multi_query($con,$sql1);
          
@@ -58,7 +58,7 @@ require_once "config.inc.php";
                 <div class="order-details" style="margin-top: 10px;padding-top: 1px solid black;margin-bottom: 10px;border-bottom: 1px solid black;">
                     <table style="font-family: arial, sans-serif;">
                         <tr>
-                            <th style="border: 1px solid #dddddd; text-align: left; width:100%; padding:8px; color: #000;">ORDER NUMBER:<span>' .$order_PIN . '</span> </th>
+                            <th style="border: 1px solid #dddddd; text-align: left; width:100%; padding:8px; color: #000;">ORDER NUMBER:<span>#' .$order_PIN . '</span> </th>
                         </tr>
                      
                         <tr style="background-color: #dddddd;">
@@ -149,7 +149,7 @@ require_once "config.inc.php";
                 <div class="order-details" style="margin-top: 10px;padding-top: 1px solid black;margin-bottom: 10px;border-bottom: 1px solid black;">
                     <table style="font-family: arial, sans-serif;">
                         <tr>
-                            <th style="border: 1px solid #dddddd; text-align: left; width:100%; padding:8px; color: #000;">ORDER NUMBER:<span>' .$order_PIN . '</span> </th>
+                            <th style="border: 1px solid #dddddd; text-align: left; width:100%; padding:8px; color: #000;">ORDER NUMBER:<span>#' .$order_PIN . '</span> </th>
                         </tr>
                      
                         <tr style="background-color: #dddddd;">

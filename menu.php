@@ -21,7 +21,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="title-area-data">
-                    <h2>Table Menu</h2>
+                    <h2>Delicious Menu</h2>
                     <p>A magical combination that sent aromas to the taste buds</p>
                 </div>
             </div>
@@ -43,9 +43,49 @@
         </div>
     </div>
 </section>
+<section class="about_section layout_padding">
+  <div class="container-fluid">
+    <div class="col-md-11 col-lg-10 mx-auto">
+      <div class="heading_container heading_center">
+        <h2>
+          OUR MENU
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-lg-6">
+          <div class="tiffin-data-one">
+            <img class="w-100" src="images/1.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-6">
+          <div class="tiffin-data-two">
+            <img class="w-100" src="images/2.png" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="box">
+        <div class="col-md-7 mx-auto">
+          <div class="img-box">
+            <img src="images/about-img.jpg" class="box-img" alt="">
+          </div>
+        </div>
+        <div class="detail-box">
+          <p>
+            Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature, discovered the undoubtable Virginia, looked
+            up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the
+            cites of the word in classical literature, discovered the undoubtable
+          </p>
+          <a href="">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
 
-
-
+<!-- 
 <section class="deals-week">
     <div class="container">
         <div
@@ -155,7 +195,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <?php include 'footer.php'; ?>

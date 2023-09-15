@@ -37,6 +37,28 @@
       text-decoration: underline;
       color: blue;
      }
+     #error-message{
+    color: red;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 22px;
+    right: 30px;
+    font-weight: 700;
+    display: none;
+}
+    #success-message{
+        color: green;
+        background-color: rgb(178, 253, 171);
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top: 22px;
+        right: 30px;
+        font-weight: 700;
+        display: none;
+    }
   </style>
 </head>
 

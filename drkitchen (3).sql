@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 02:15 PM
+-- Generation Time: May 25, 2023 at 07:10 AM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,16 +54,9 @@ CREATE TABLE `billing_address1` (
   `b_email` varchar(255) NOT NULL,
   `b_address` varchar(255) NOT NULL,
   `b_phone` varchar(13) NOT NULL,
-  `user` varchar(255) NOT NULL
+  `user` varchar(255) NOT NULL,
+  `order_pin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `billing_address1`
---
-
-INSERT INTO `billing_address1` (`b_id`, `b_name`, `b_email`, `b_address`, `b_phone`, `user`) VALUES
-(17, 'Pankaj Kumar', 'nareshaggarwal2022@gmail.com', '124507 Gali No. 4, Durga Coloney, Bahadurgarh, Haryana', '8708175594', 'iasnareshnoni2@gmail.com'),
-(19, 'Naresh', 'nareshaggarwal2022@gmail.com', '124507 Gali No. 4, Durga Coloney, Bahadurgarh, Haryana', '7027450119', 'iasnareshnoni2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -121,14 +114,6 @@ CREATE TABLE `order_details` (
   `order_user` varchar(255) NOT NULL,
   `order_pin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`order_id`, `order_product`, `order_qty`, `order_price`, `order_payment_id`, `order_total`, `order_status`, `order_date`, `order_user`, `order_pin`) VALUES
-(18, 'IDLI SAMBAR, PANEER PAKODA, VEG PIZZA', '1, 7, 6', '99, 623, 534', 'pay_Lrv7ztVXlbmZLJ', '1266', 1, '2023-05-20', 'iasnareshnoni2@gmail.com', '#DRORDER0986'),
-(19, 'BREAD ROLL, WHITE SAUCE PASTA, VEG GRILLED SANDWICH, BREAD PAKODA', '6, 4, 7, 10', '210, 280, 315, 200', 'pay_LsHrNvkp36P3Ju', '1015', 1, '2023-05-21', 'iasnareshnoni2@gmail.com', '#DRODER27902');
 
 -- --------------------------------------------------------
 
@@ -194,15 +179,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `user_name`, `mobile`, `user_email`, `user_pass`) VALUES
-(1, 'Naresh', '08708175594', 'iasnareshnoni2@gmail.com', '$2y$10$N4q9xyGQ4IicqpQb6LmAO.kYwuKLZ28jBMg6Set2bojCB7cdSU8EK'),
-(2, 'Noni', '7027450119', 'nareshaggarwal2022@gmail.com', '$2y$10$4pKpdrUfzDTRRg7Yt9BaUe0cos3JS8oYhZbjdedHjlZAPRz7s.kqq'),
-(6, '', '', '', '$2y$10$v6JQbgA1fxb3PIfVcM6uSuSILEigTXX6suyG7t7DTGa.6KDfjlD6S');
-
---
 -- Indexes for dumped tables
 --
 
@@ -262,13 +238,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `billing_address1`
 --
 ALTER TABLE `billing_address1`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -280,7 +256,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -292,7 +268,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

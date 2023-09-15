@@ -2,7 +2,7 @@
 include 'config.inc.php';
 
 if(isset($_GET['user_id'])){
-  $user = $_GET['user_id'];
+  $users = $_GET['user_id'];
 }
 ?>
 
@@ -169,14 +169,13 @@ if(isset($_GET['user_id'])){
             </ul>
             <div class="tab-content p-3">
                 <div class="tab-pane active" id="profile">
-                  <?php
-                  $query = mysqli_query($con,"SELECT * FROM billing_address1 CROSS JOIN order_details WHERE order_id = $user");
+                <?php
+                  $query = mysqli_query($con,"SELECT * FROM billing_address1 WHERE order_pin = '$users'");
                   if( mysqli_num_rows($query) > 0){
                      $res = mysqli_fetch_assoc($query)
                   ?>
-                    <h5 class="mb-3"><?php echo $res['b_name']; ?></h5>
-                    <div class="row">
-                        <div class="col-md-6 mt-4">
+                        <div class="col-md-12 mt-4">
+                        <h5 class="mb-3"><?php echo $res['b_name']; ?></h5>
                            <u> <h6>Email</h6></u>
                             <p>
                             <?php echo $res['b_email']; ?>
@@ -190,20 +189,23 @@ if(isset($_GET['user_id'])){
                             <?php echo $res['b_address']; ?>
                             </p>
                         </div>
-                        <!-- <div class="col-md-6 mb-0">
-                            <h6>products</h6>
-                            <a href="#" class="badge badge-dark badge-pill">html5</a>
-                            <a href="#" class="badge badge-dark badge-pill">react</a>
-                            <hr>
-                        </div> -->
-                        <div class="col-md-6 d-flex">
+                      <?php
+                  }
+                      ?>
+
+                      <div class="col-md-12 d-flex border-top pt-4">
+                      <?php
+                            $query = mysqli_query($con,"SELECT * FROM order_details WHERE order_pin = '$users'");
+                            if( mysqli_num_rows($query) > 0){
+                                $res = mysqli_fetch_assoc($query)
+                     ?>
                         <div class="col-md-4">
                             <h6>products</h6>
                             <?php 
                                $product = explode(',', $res['order_product']); 
                                foreach($product as $prod){
                              ?>
-                            <p class="badge badge-success p-2"><?php echo $prod; ?></p> <br>
+                            <p class="badge badge-success p-2 mt-1"><?php echo $prod; ?></p> <br>
                             <?php
                                }
                             ?>
@@ -214,7 +216,7 @@ if(isset($_GET['user_id'])){
                                $Quantity = explode(',', $res['order_qty']); 
                                foreach($Quantity as $qty){
                              ?>
-                            <p class="badge badge-success p-2"><?php echo $qty; ?></p><br>
+                            <p class="badge badge-success p-2 mt-1"><?php echo $qty; ?></p><br>
                             <?php
                                }
                             ?>
@@ -225,172 +227,21 @@ if(isset($_GET['user_id'])){
                                $price = explode(',', $res['order_total']); 
                                foreach($price as $prices){
                              ?>
-                            <p class="badge badge-success p-2"><?php echo $prices; ?></p><br>
+                            <p class="badge badge-success p-2 mt-1"><?php echo $prices; ?></p><br>
                             <?php
                                }
                             ?>
                         </div>
 
-                        </div>
-                        <?php
+                      </div>
+                      <?php
+                  }
+                      ?>
 
-                               }
-                              
-                          ?>
-                        <!-- <div class="col-md-12">
-                            <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                             <div class="table-responsive">
-                            <table class="table table-hover table-striped">
-                                <tbody>                                    
-                                    <tr>
-                                        <td>
-                                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
-                          <!-- </div>
-                        </div> -->
                     </div>
                     <!--/row-->
                 </div>
-                <!-- <div class="tab-pane" id="messages">
-                    <div class="alert alert-info alert-dismissible" role="alert">
-				   <button type="button" class="close" data-dismiss="alert">&times;</button>
-				    <div class="alert-icon">
-					 <i class="icon-info"></i>
-				    </div>
-				    <div class="alert-message">
-				      <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
-				    </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-hover table-striped">
-                        <tbody>                                    
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
-                                </td>
-                            </tr>
-                        </tbody> 
-                    </table>
-                  </div>
-                </div> -->
-                <!-- <div class="tab-pane" id="edit">
-                    <form>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Mark">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Jhonsan">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="email" value="mark@example.com">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="file">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="url" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Street">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-6">
-                                <input class="form-control" type="text" value="" placeholder="City">
-                            </div>
-                            <div class="col-lg-3">
-                                <input class="form-control" type="text" value="" placeholder="State">
-                            </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="jhonsanmark">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
-                            </div>
-                        </div>
-                    </form>
-                </div> -->
+              
             </div>
         </div>
       </div>

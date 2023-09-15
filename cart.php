@@ -1,11 +1,10 @@
 <?php
-// session_start();
-include 'header.php';
- include "config.inc.php";
-
+  session_start();
   if(isset($_SESSION['email'])){
+
+    include 'header.php';
+    include "config.inc.php";
     $user = $_SESSION['email'];
-  }
  ?>
 <style>
 
@@ -30,13 +29,11 @@ include 'header.php';
         text-align: center;
       
     }
-    .number input{
-      
-       
-     
-        width: 43%;
-        height: 43px;
-    
+    .number input[type=number]{
+      height: 43px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 7px;
     }
     
     #btn{
@@ -253,7 +250,15 @@ include 'header.php';
               </table>
               <div class="d-flex mb-4">
                 <button type="button" class="btn btn-primary update_cart" id="btn">Update Cart</button>
+              <?php
+                if($res3['total'] > 20){
+                ?>
                 <a href="check-out.php"><button type="button" class="btn btn-primary " id="btn">Check Out</button></a>
+                <?php
+                }
+              ?>
+                
+
               </div>
             </div>
 
@@ -315,3 +320,8 @@ include 'header.php';
 </body>
 
 </html>
+<?php
+  }else{
+    header('location:login.php');
+  }
+?>

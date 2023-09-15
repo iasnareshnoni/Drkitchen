@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "bodoni svtytwo sc itc tt book";
   src: url(../fonts/bodoni-svtytwo-sc-itc-tt-book.ttf);
@@ -52,7 +53,30 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-
+#error-message{
+  color: red;
+  background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  top: 141px;
+  z-index: 99999;
+  right: 40px;
+  font-weight: 700;
+  display: none;
+}
+#success-message{
+  color: green;
+  background-color: rgb(178, 253, 171);
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  top: 141px;
+  z-index: 99999;
+  right: 40px;
+  font-weight: 700;
+  display: none;
+}
 .heading_container h2 {
   font-size: 2.5rem;
   color: #000000;
@@ -156,7 +180,6 @@ a:focus {
       -ms-flex-align: center;
           align-items: center;
   margin-left: auto;
-  margin-right: 75px;
 }
 
 .User_option a {
@@ -274,7 +297,7 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 75px;
+          padding-top: 145px;
   padding-bottom: 425px;
   position: relative;
 }

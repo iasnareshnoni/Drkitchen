@@ -1,6 +1,9 @@
 
 <?php
  session_start();
+ if(isset($_SESSION['email'])){
+    header('location:index.php');
+ }else{
  $msg = '';
  require_once "config.inc.php";
  if(isset($_POST['submit'])){
@@ -85,7 +88,7 @@
 		<div class="form">
       <form action="" method="POST">
 			<input placeholder='Email*' type="text" name="username" >
-			<input placeholder='Password*' type="text" name="password" >
+			<input placeholder='Password*' type="password" name="password" >
 			<div class="login"><input type="submit" value="Login" name="submit" style="background:transparent; color:white; border:none"></div>
       </form>
       <div class="error"><?php echo $msg; ?></div>
@@ -133,3 +136,6 @@
 </body>
 
 </html>
+<?php 
+ }
+?>

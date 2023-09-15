@@ -1,4 +1,5 @@
-<?php include 'header.php'; 
+<?php session_start();
+ include 'header.php'; 
  if($_SESSION['email']){
     $user = $_SESSION['email'];
  }
@@ -24,7 +25,7 @@
 
 
 </style>
-<section class="banner" style="background-image:url(images/background.png)">
+<section class="banner" style="background-image:url(images/background.png);">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7">
@@ -152,7 +153,14 @@
                 </tbody>
 
                 </table>
-                <button type="submit" name="submit" class=" mt-3 submit">Place Order</button>
+                <?php
+                if( $res3['total'] > 20){
+                ?>
+                 <button type="submit" name="submit" class=" mt-3 submit">Place Order</button>
+
+                <?php
+                }
+                ?>
 
             </div>
             </form>

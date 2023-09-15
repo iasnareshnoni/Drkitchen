@@ -8,63 +8,7 @@
           <div class="card">
             <!-- < class="card-body"> -->
               <h5 class="card-title text-center m-4" style="text-decoration: underline;">Customer Order</h5>
-			  <!-- <div class="table-responsive">
-               <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Customer</th>
-                      <th scope="col">Address</th>
-                      <th scope="col">Phone</th>
-                      <th scope="col">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $con = mysqli_connect('localhost','root','','drkitchen');
-
-                  $sql = "SELECT * FROM order_details INNER JOIN billing_address1 ON order_details.order_user = billing_address1.user";
-                  $query = mysqli_query($con, $sql);
-
-                  $row = mysqli_num_rows($query);
-
-                    if($row > 0){
-                      $i=1;
-                        while( $res = mysqli_fetch_assoc($query)){
-                    ?>
-                    <tr>
-                      
-                 <?php ?>
-                      <td><?php echo $i++; ?></td>
-                      <td><a class="link" href="order_detail.php?user_id=<?php echo $res['b_id']; ?>"><?php echo $res['b_name']; ?></a></td>
-                      <td><?php echo $res['b_address']; ?></td>
-                      <td><?php echo $res['b_phone']; ?></td>
-                      <?php
-                        $status = $res['order_status'];
-                       if($status == 1){
-                        ?>
-                          <td><span><?php echo "Deliverd"; ?></span></td>              
-                       <?php
-                       }else{
-                        ?>
-                        <td><a href="" class="btn btn-primary store"  data-val="<?php echo $status; ?>" data-id="<?php echo $res['order_id']; ?>" >Pending</a></td>
-                        <?php
-                       }
-                      ?>
-                   
-                    </tr>
-                     
-                    <?php
-                      }
-                    }
-                    ?>
-                  </tbody>
-                </table>
-            </div>
-            </div>
-          </div>
-        </div> -->
-        <div class="table-responsive">
+              <div class="table-responsive">
                  <table class="table align-items-center table-flush table-borderless">
                   <thead>
                    <tr>
@@ -83,7 +27,7 @@
                       while($row_order = mysqli_fetch_array($select_order)){
                     ?>
                     <tr>
-                    <td><a class="link" href="order_detail.php?user_id=<?php echo $row_order['order_id']; ?>"><?php echo $row_order['order_pin']; ?></a></td>
+                    <td><a class="link" href="order_detail.php?user_id=<?php echo $row_order['order_pin']; ?>"><?php echo $row_order['order_pin']; ?></a></td>
                     <td><?php echo $row_order['order_payment_id']; ?></td>
                     <td>₹ <?php echo $row_order['order_total']; ?></td>
                     <td><?php echo $row_order['order_date']; ?></td>
@@ -180,7 +124,7 @@
   <script src='assets/plugins/fullcalendar/js/moment.min.js'></script>
   <script src='assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
   <script src="assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
       

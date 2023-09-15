@@ -4,6 +4,7 @@ if(isset($_SESSION['email'])){
    header('location:index.php');
 }else{
 $msg = "";
+$alert = "";
 require_once "config.inc.php";
 
 if(isset($_POST['submit'])){
@@ -23,7 +24,8 @@ if(isset($_POST['submit'])){
 
          $insert = mysqli_query($con,"INSERT INTO user (user_name,mobile,user_email,user_pass) VALUES ('$name','$mobile','$email','$hash')");
          if($insert){
-          header("location:login.php");
+          $alert = "login";
+          // header("location:login.php");
          }else{
           $msg = "Something Wrong.";
          }
@@ -91,14 +93,23 @@ if(isset($_POST['submit'])){
       <form action="" method="POST">
 			<input placeholder='Name' name="name" type="text">
 			<input placeholder='Mobile No' name="mobile" type="text">
-      <input placeholder='Email Id' name="email" type="text">
-      <input placeholder='Password' name="password" type="text">
+      <input placeholder='Email Id' name="email" type="email">
+      <input placeholder='Password' name="password" type="password">
 			<div class="login"><input type="submit" name="submit" value="Register" style="background:transparent; color:white; border:none"></div>
       </form>
       <div class="error mt-1"><?php echo $msg; ?></div>
 		</div>
 		<!-- <div class="fack"><a href="#"><i class="fa fa-question-circle"></i>Forgot password?</a></div> -->
     <div class="fack"><a href="login.php"><i class="fa fa-question-circle"></i>Login</a>
+    <?php if(!$alert == ''){
+  ?>
+  <div class="alert alert-success mt-3">
+  <strong>You are Successful Registerd! &nbsp;&nbsp;</strong><a href="<?php echo $alert; ?>.php" class="alert-link"><?php echo $alert . " Here"; ?></a>.
+      
+    </div>
+  <?php
+    }
+    ?>
 </div>
    
 	</div>
